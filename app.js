@@ -43,7 +43,7 @@ else {
     console.log("Using default Http REST protocol!");
     gpio_status["WEBSOCKETS"] = false;
 }
-
+/*
 // maps / exports gpio pins
 //                                            (gpio_pin_number, gpio_pin_name)
 rpi_gpio.setup(7,  rpi_gpio.DIR_OUT, gpioWrite(7,  'GPIO_04', false));
@@ -53,7 +53,7 @@ rpi_gpio.setup(15, rpi_gpio.DIR_OUT, gpioWrite(15, 'GPIO_22', false));
 rpi_gpio.setup(16, rpi_gpio.DIR_OUT, gpioWrite(16, 'GPIO_23', false));
 rpi_gpio.setup(18, rpi_gpio.DIR_OUT, gpioWrite(18, 'GPIO_24', false));
 rpi_gpio.setup(22, rpi_gpio.DIR_OUT, gpioWrite(22, 'GPIO_25', false));
-
+*/
 // gpio write function
 function gpioWrite(gpionumber, gpioname, value) {
     return function() {
@@ -188,4 +188,6 @@ process.on( 'SIGINT', function() {
   
   console.log( "Gracefully shutting down from  SIGINT (Crtl-C)");
   process.exit( )
+
+  
 });

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Raspberry Pi GPIO WebInterface</title>
+  <title>Full Fitness LA</title>
   <link rel="stylesheet" href="stylesheets/reset.css" media="all" />
   <link rel="stylesheet" href="stylesheets/style.css" media="all" />
 <!--   <link rel='stylesheet' media='screen and (max-width: 700px)' href='stylesheets/small.css' /> -->
@@ -13,33 +13,22 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrapper"><img class="logo" src="images/raspberry.png"><h1>Raspberry Pi - GPIO WebInterface</h1>   </div> 
-  </header>  
-  <section>
-     <div id="block01" class="block01">
-      <form action="" id="toggles" class="toggles">
-        <fieldset>
-          <legend>rPi GPIO Remote Control</legend>
-          <button class="off" type="button" id="GPIO_04" onclick="rpi_gpio.ui_control(this);"><span class="output">Output</span> 01 (GPIO_04)</button>
-          <button class="off" type="button" id="GPIO_17" onclick="rpi_gpio.ui_control(this);"><span class="output">Output</span> 02 (GPIO_17)</button>
-          <button class="off" type="button" id="GPIO_21" onclick="rpi_gpio.ui_control(this);"><span class="output">Output</span> 03 (GPIO_21)</button>
-          <button class="off" type="button" id="GPIO_22" onclick="rpi_gpio.ui_control(this);"><span class="output">Output</span> 04 (GPIO_22)</button>
-          <button class="off" type="button" id="GPIO_23" onclick="rpi_gpio.ui_control(this);"><span class="output">Output</span> 05 (GPIO_23)</button>
-          <button class="off" type="button" id="GPIO_24" onclick="rpi_gpio.ui_control(this);"><span class="output">Output</span> 06 (GPIO_24)</button>
-          <button class="off" type="button" id="GPIO_25" onclick="rpi_gpio.ui_control(this);"><span class="output">Output</span> 07 (GPIO_25)</button>
-        </fieldset>
-      </form>
-    </div>
-    <footer>
-      <p class="credits">by: Nelson Neves - <a target="_blank" href="http://twitter.com/botdream">@botdream</a> on twitter</p>
-    </footer>
-  </section>
+  <button class="off" style="display:none;" type="button" id="GPIO_04" onclick="rpi_gpio.ui_control(this);"></button>
+  <div id="principal">
+    <img src="images/fondo1.png" width="100%"/>
+    
+  </div>
+  <div id="perfil">
+    <h1> Bienvenido Ezequiel! </h1>
+  </div>
+  
 
   <script src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="javascripts/gpio.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
   <script type="text/javascript">
-    var rpi_gpio = RPI.Gpio({ 
+    var rpi_gpio = RPI.Gpio(/*{ 
       "GPIO_04": toggles.elements.GPIO_04, 
       "GPIO_17": toggles.elements.GPIO_17,
       "GPIO_21": toggles.elements.GPIO_21,
@@ -47,7 +36,20 @@
       "GPIO_23": toggles.elements.GPIO_23,
       "GPIO_24": toggles.elements.GPIO_24,
       "GPIO_25": toggles.elements.GPIO_25
-    });
+    }*/);
+    var current = 'principal';
+    window.onkeyup = function(e) {
+      $('button').click();
+      if(current === 'principal') {
+        current = 'perfil';
+        $('#principal').hide();
+        $('#perfil').show();
+      }else {
+        $('#principal').show();
+        $('#perfil').hide();
+        current = 'principal';
+      }
+    }
   </script>
 	</body>
 </html>

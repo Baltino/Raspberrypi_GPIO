@@ -1,5 +1,5 @@
     body{
-      background-color: rgb(249,246,225);
+      background-color: black;
       font-family: verdana;
       font-size: 100%;   
     }
@@ -109,3 +109,13 @@
     .credits{
       text-align: center;
     }
+
+
+
+    #principal {
+
+    }
+    #perfil {
+      display: none;
+    }
+
