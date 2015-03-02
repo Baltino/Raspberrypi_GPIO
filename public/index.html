@@ -44,10 +44,11 @@
         current = 'perfil';
         $('#principal').hide();
         $('#perfil').show();
-      }else {
-        $('#principal').show();
-        $('#perfil').hide();
-        current = 'principal';
+        setTimeout(funtion(){
+          $('#principal').show();
+          $('#perfil').hide();
+          current = 'principal';
+        }, 2000);
       }
     }
   </script>
