@@ -15,7 +15,7 @@
 <body>
   <button class="off" style="display:none;" type="button" id="GPIO_04" onclick="rpi_gpio.ui_control(this);"></button>
   <div id="principal">
-    <img src="images/fondo1.png" width="100%"/>
+    <img id="fondo" src="images/fondo1.png" width="100%"/>
     
   </div>
   <div id="perfil">
@@ -38,19 +38,19 @@
       "GPIO_25": toggles.elements.GPIO_25
     }*/);
     var current = 'principal';
-    window.onkeyup = function(e) {
+    $('#fondo').click(function(e) {
       $('button').click();
       if(current === 'principal') {
         current = 'perfil';
         $('#principal').hide();
         $('#perfil').show();
-        setTimeout(funtion(){
+        setTimeout(function(){
           $('#principal').show();
           $('#perfil').hide();
           current = 'principal';
         }, 2000);
       }
-    }
+    });  
   </script>
 	</body>
 </html>
