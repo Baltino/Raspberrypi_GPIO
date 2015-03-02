@@ -28,7 +28,7 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
   <script type="text/javascript">
-    var rpi_gpio = RPI.Gpio(/*{ 
+    var rpi_gpio = RPI.Gpio({ 
       "GPIO_04": toggles.elements.GPIO_04, 
       "GPIO_17": toggles.elements.GPIO_17,
       "GPIO_21": toggles.elements.GPIO_21,
@@ -36,9 +36,9 @@
       "GPIO_23": toggles.elements.GPIO_23,
       "GPIO_24": toggles.elements.GPIO_24,
       "GPIO_25": toggles.elements.GPIO_25
-    }*/);
+    });
     var current = 'principal';
-    window.onkeyup = function(e) {
+    window.onkeyup = function(e) {alert("la");
       $('button').click();
       if(current === 'principal') {
         current = 'perfil';
@@ -50,6 +50,19 @@
           current = 'principal';
         }, 2000);
       }
+    }
+	$("img").bind("click", function(e){
+	      $('button').click();
+	      if(current === 'principal') {
+	        current = 'perfil';
+	        $('#principal').hide();
+	        $('#perfil').show();
+	        setTimeout(funtion(){
+	          $('#principal').show();
+	          $('#perfil').hide();
+	          current = 'principal';
+	        }, 2000);
+      	});
     }
   </script>
 	</body>
